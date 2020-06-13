@@ -1,3 +1,5 @@
+# Try it
+http://beebit.rf.gd/
 # Documentation
 On it's own, messages won't send. To fix this you'll want to create a "log.html" along with these files.
 # Warning
