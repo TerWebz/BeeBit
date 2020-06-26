@@ -9,6 +9,6 @@ This does not come with any spam protection whatsoever, it's best to use this pr
 Javier
 Runier/Ghoki
 YeTack
-DvToons
+DvToons (former)
 TerWebz
 ```
