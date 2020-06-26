@@ -17,7 +17,7 @@ if (isset ( $_POST ['enter'] )) {
 	if ($_POST ['name'] != "") {
 		$_SESSION ['name'] = stripslashes ( htmlspecialchars ( $_POST ['name'] ) );
 		$fp = fopen ( "log.html", 'a' );
-		fwrite ( $fp, "<div class='msgln'><i>User " . $_SESSION ['name'] . " has signed in.</i><br></div>" );
+		fwrite ( $fp, "<div class='msgln'><i>" . $_SESSION ['name'] . " has signed in.</i><br></div>" );
 		fclose ( $fp );
 	} else {
 		echo '<span class="error">Enter a name.</span>';
@@ -28,7 +28,7 @@ if (isset ( $_GET ['logout'] )) {
 	
 	// Simple exit message
 	$fp = fopen ( "log.html", 'a' );
-	fwrite ( $fp, "<div class='msgln'><i>User " . $_SESSION ['name'] . " has logged out.</i><br></div>" );
+	fwrite ( $fp, "<div class='msgln'><i>" . $_SESSION ['name'] . " has logged out.</i><br></div>" );
 	fclose ( $fp );
 	
 	session_destroy ();
@@ -51,7 +51,7 @@ if (isset ( $_GET ['logout'] )) {
 <div id="wrapper">
 		<div id="menu">
 			<p class="welcome">
-				Welcome, <b><?php echo $_SESSION['name']; ?></b>
+				Hello, <b><?php echo $_SESSION['name']; ?></b>
 			</p>
 			<p class="logout">
 				<a id="exit" href="#">LoGOUT</a>
