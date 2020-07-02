@@ -54,7 +54,7 @@ if (isset ( $_GET ['logout'] )) {
 				Hello, <b><?php echo $_SESSION['name']; ?></b>
 			</p>
 			<p class="logout">
-				<a id="exit" href="#">LoGOUT</a>
+				<a id="exit" href="#">Sign out</a>
 			</p>
 			<div style="clear: both"></div>
 		</div>
