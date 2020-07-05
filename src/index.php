@@ -7,7 +7,7 @@ function loginForm() {
         <p>Please enter your name to continue:</p>
         <label for="name">Name:</label>
         <input type="text" name="name" id="name" />
-        <input type="submit" name="enter" id="enter" value="Sign in" />
+        <input type="submit" name="enter" id="enter" value="Enter" />
     </form>
     </div>
     ';
@@ -17,18 +17,18 @@ if (isset ( $_POST ['enter'] )) {
 	if ($_POST ['name'] != "") {
 		$_SESSION ['name'] = stripslashes ( htmlspecialchars ( $_POST ['name'] ) );
 		$fp = fopen ( "log.html", 'a' );
-		fwrite ( $fp, "<div class='msgln'><i>" . $_SESSION ['name'] . " has signed in.</i><br></div>" );
+		fwrite ( $fp, "<div class='msgln'><i>User " . $_SESSION ['name'] . " has joined the chat session.</i><br></div>" );
 		fclose ( $fp );
 	} else {
-		echo '<span class="error">Enter a name.</span>';
+		echo '<span class="error">Please type in a name</span>';
 	}
 }
 
-if (isset ( $_GET ['signout'] )) {
+if (isset ( $_GET ['logout'] )) {
 	
 	// Simple exit message
 	$fp = fopen ( "log.html", 'a' );
-	fwrite ( $fp, "<div class='msgln'><i>" . $_SESSION ['name'] . " has logged out.</i><br></div>" );
+	fwrite ( $fp, "<div class='msgln'><i>User " . $_SESSION ['name'] . " has left the chat session.</i><br></div>" );
 	fclose ( $fp );
 	
 	session_destroy ();
@@ -39,8 +39,90 @@ if (isset ( $_GET ['signout'] )) {
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
 <html>
 <head>
-<link rel="stylesheet" type="text/css" href="stylesheet.css">
-<title>BeeBit - Chat</title>
+<style>
+body {
+	font: 12px arial;
+	color: #222;
+	text-align: center;
+	padding: 35px;
+}
+
+form,p,span {
+	margin: 0;
+	padding: 0;
+}
+
+input {
+	font: 12px arial;
+}
+
+a {
+	color: #0000FF;
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+#wrapper,#loginform {
+	margin: 0 auto;
+	padding-bottom: 25px;
+	background: #EBF4FB;
+	width: 504px;
+	border: 1px solid #ACD8F0;
+}
+
+#loginform {
+	padding-top: 18px;
+}
+
+#loginform p {
+	margin: 5px;
+}
+
+#chatbox {
+	text-align: left;
+	margin: 0 auto;
+	margin-bottom: 25px;
+	padding: 10px;
+	background: #fff;
+	height: 270px;
+	width: 430px;
+	border: 1px solid #ACD8F0;
+	overflow: auto;
+}
+
+#usermsg {
+	width: 395px;
+	border: 1px solid #ACD8F0;
+}
+
+#submit {
+	width: 60px;
+}
+
+.error {
+	color: #ff0000;
+}
+
+#menu {
+	padding: 12.5px 25px 12.5px 25px;
+}
+
+.welcome {
+	float: left;
+}
+
+.logout {
+	float: right;
+}
+
+.msgln {
+	margin: 0 0 2px 0;
+}
+</style>
+<title>Chat - Customer Module</title>
 </head>
 <body>
 	<?php
@@ -51,10 +133,10 @@ if (isset ( $_GET ['signout'] )) {
 <div id="wrapper">
 		<div id="menu">
 			<p class="welcome">
-				Hello, <b><?php echo $_SESSION['name']; ?></b>
+				Welcome, <b><?php echo $_SESSION['name']; ?></b>
 			</p>
-			<p class="signout">
-				<a id="exit" href="#">Sign Out</a>
+			<p class="logout">
+				<a id="exit" href="#">Exit Chat</a>
 			</p>
 			<div style="clear: both"></div>
 		</div>
@@ -69,7 +151,7 @@ if (isset ( $_GET ['signout'] )) {
 		?></div>
 
 		<form name="message" action="">
-			<input name="usermsg" type="text" maxlength="100" id="usermsg" size="63" /> <input
+			<input name="usermsg" type="text" id="usermsg" size="63" /> <input
 				name="submitmsg" type="submit" id="submitmsg" value="Send" />
 		</form>
 	</div>
@@ -84,8 +166,8 @@ $(document).ready(function(){
 $(document).ready(function(){
 	//If user wants to end session
 	$("#exit").click(function(){
-		var exit = confirm("Are you sure you want to sign out?");
-		if(exit==true){window.location = 'index.php?signout=true';}		
+		var exit = confirm("Are you sure you want to end the session?");
+		if(exit==true){window.location = 'index.php?logout=true';}		
 	});
 });
 
@@ -124,6 +206,5 @@ setInterval (loadLog, 2500);
 		src="http://ajax.googleapis.com/ajax/libs/jquery/1.3/jquery.min.js"></script>
 	<script type="text/javascript">
 </script>
-<h1>Welcome to the open beta of BeeBit, please avoid spamming.</h1>
 </body>
 </html>
