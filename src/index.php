@@ -69,7 +69,7 @@ if (isset ( $_GET ['signout'] )) {
 		?></div>
 
 		<form name="message" action="">
-			<input name="usermsg" type="text" id="usermsg" size="63" /> <input
+			<input name="usermsg" type="text" maxlength="100" id="usermsg" size="63" /> <input
 				name="submitmsg" type="submit" id="submitmsg" value="Send" />
 		</form>
 	</div>
