@@ -124,5 +124,6 @@ setInterval (loadLog, 2500);
 		src="http://ajax.googleapis.com/ajax/libs/jquery/1.3/jquery.min.js"></script>
 	<script type="text/javascript">
 </script>
+<h1>Welcome to the open beta of BeeBit, please avoid spamming.</h1>
 </body>
 </html>
