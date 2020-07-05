@@ -24,7 +24,7 @@ if (isset ( $_POST ['enter'] )) {
 	}
 }
 
-if (isset ( $_GET ['logout'] )) {
+if (isset ( $_GET ['signout'] )) {
 	
 	// Simple exit message
 	$fp = fopen ( "log.html", 'a' );
@@ -53,8 +53,8 @@ if (isset ( $_GET ['logout'] )) {
 			<p class="welcome">
 				Hello, <b><?php echo $_SESSION['name']; ?></b>
 			</p>
-			<p class="logout">
-				<a id="exit" href="#">Sign out</a>
+			<p class="signout">
+				<a id="exit" href="#">Sign Out</a>
 			</p>
 			<div style="clear: both"></div>
 		</div>
@@ -84,8 +84,8 @@ $(document).ready(function(){
 $(document).ready(function(){
 	//If user wants to end session
 	$("#exit").click(function(){
-		var exit = confirm("Are you sure you want to end the session?");
-		if(exit==true){window.location = 'index.php?logout=true';}		
+		var exit = confirm("Are you sure you want to sign out?");
+		if(exit==true){window.location = 'index.php?signout=true';}		
 	});
 });
 

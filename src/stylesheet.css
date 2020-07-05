@@ -10,6 +10,10 @@ form,p,span {
 	padding: 0;
 }
 
+p {
+	color: white;
+}
+
 input {
 	font: 12px arial;
 }
@@ -62,11 +66,17 @@ a:hover {
 	border-radius: .2rem !important;
 }
 
+#enter {
+	line-height: 1.47;
+	border: 1px solid #acd8f0;
+	border-radius: .2rem !important;
+}
+
 #submit {
 	width: 60px;
 }
 
-#submitmsg {
+#submitmsg,#enter {
 	background: linear-gradient(#42a1ec,#0070c9);
 	border: 1px solid #07c;
 	padding: 3px 10px;
@@ -74,6 +84,12 @@ a:hover {
 	min-width: 50px;
 	border-radius: .2rem !important;
 	color: white;
+}
+
+#name {
+	line-height: 1.47;
+	border: 1px solid #acd8f0;
+	border-radius: .2rem !important;
 }
 
 .error {
@@ -94,7 +110,7 @@ a:hover {
 	color: white;
 }
 
-.logout {
+.signout {
 	float: right;
 }
 
