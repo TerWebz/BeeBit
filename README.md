@@ -1,5 +1,5 @@
 # BeeBit
-BeeBit is an online chat service inspired by IRC and it aims to be an way to interact with your friends online.
+BeeBit is an online chat service inspired by IRC and it aims to be a way to interact with your friends online.
 # Languages
 We utilize the use of Bootstrap 4, PHP 7.2, JavaScript and HTML to make BeeBit.
 # Warning
